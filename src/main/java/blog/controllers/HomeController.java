@@ -5,8 +5,18 @@ package blog.controllers;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private PostService postService;
+
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        List<Post> latest5Posts = postService.findLatest5();
+        model.addAttribute("latest5posts", latest5Posts);
+
+        List<Post> latest3Posts = latest5Posts.stream()
+                .limit(3).collect(Collectors.toList());
+        model.addAttribute("latest3posts", latest3Posts);
+
         return "index";
     }
 }
