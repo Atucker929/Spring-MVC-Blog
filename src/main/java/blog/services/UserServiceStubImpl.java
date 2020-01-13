@@ -9,6 +9,6 @@ public class UserServiceStubImpl implements UserService {
     @Override
     public boolean authenticate(String username, String password) {
         // Provide a sample password check: username == password
-        return Objects.equals(username, password);
+        return !Objects.equals(username, password);
     }
 }

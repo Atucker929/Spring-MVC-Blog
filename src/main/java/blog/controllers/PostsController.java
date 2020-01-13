@@ -1,6 +1,7 @@
 package blog.controllers;
 
 import blog.models.Post;
+import org.springframework.stereotype.Controller;
 import blog.services.NotificationService;
 import blog.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
